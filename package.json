@@ -1,0 +1,24 @@
+{
+  "name": "@ostro/contracts",
+  "version": "0.0.0-alpha.0",
+  "description": "contracts module node @ostro",
+  "engines": {
+    "node": ">= 12.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "contracts"
+  ],
+  "author": "amar",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ostrojs/contracts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ostrojs/contracts/issues"
+  },
+  "homepage": "https://github.com/ostrojs/contracts#readme"
+}
