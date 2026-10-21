@@ -1,4 +1,6 @@
-module.exports = {
+import type { Config } from 'jest';
+
+const config: Config = {
     testEnvironment: 'node',
     testMatch: ['**/test/**/*.test.ts', '**/test/**/*.test.js'],
     transform: {
@@ -14,3 +16,5 @@ module.exports = {
     coverageDirectory: 'coverage',
     coverageReporters: ['text', 'lcov', 'clover']
 };
+
+export default config;
