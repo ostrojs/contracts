@@ -1,25 +1,47 @@
 {
-  "name": "@ostro/contracts",
-  "version": "1.1.4",
-  "description": "Contracts module for OstroJS",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "engines": {
-    "node": ">=12.0.0"
-  },
-  "engineStrict": true,
-  "keywords": [
-    "contracts"
-  ],
-  "author": "amar",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ostrojs/contracts.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ostrojs/contracts/issues"
-  },
-  "homepage": "https://github.com/ostrojs/contracts#readme"
+    "name": "@ostro/contracts",
+    "version": "2.0.0-alpha.1",
+    "description": "Contracts module for OstroJS",
+    "files": [
+        "build"
+    ],
+    "exports": {
+        "./*": {
+            "types": [
+                "./build/*.d.ts",
+                "./build/*/index.d.ts"
+            ],
+            "default": [
+                "./build/*.js",
+                "./build/*/index.js"
+            ]
+        }
+    },
+    "scripts": {
+        "build": "tsc -p tsconfig.build.json && node scripts/build.js",
+        "prepublishOnly": "npm run build",
+        "test": "npx c8 npx jest",
+        "clean": "rm -rf build coverage"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "engineStrict": true,
+    "keywords": [
+        "contracts"
+    ],
+    "author": "amar",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ostrojs/contracts.git"
+    },
+    "bugs": {
+        "url": "https://github.com/ostrojs/contracts/issues"
+    },
+    "homepage": "https://github.com/ostrojs/contracts#readme",
+    "devDependencies": {
+        "typescript": "^5.8.0",
+        "@types/node": "^22.0.0"
+    }
 }
