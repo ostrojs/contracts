@@ -1,6 +1,6 @@
 {
     "name": "@ostro/contracts",
-    "version": "2.0.0-alpha.1",
+    "version": "2.0.0-alpha.2",
     "description": "Contracts module for OstroJS",
     "files": [
         "build"
@@ -8,8 +8,8 @@
     "exports": {
         "./*": {
             "types": [
-                "./build/*.d.ts",
-                "./build/*/index.d.ts"
+                "./build/types/*.d.ts",
+                "./build/types/*/index.d.ts"
             ],
             "default": [
                 "./build/*.js",
