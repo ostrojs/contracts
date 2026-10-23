@@ -1,19 +1,16 @@
 {
     "name": "@ostro/contracts",
-    "version": "2.0.0-alpha.5",
+    "version": "2.0.0-alpha.6",
     "description": "Contracts module for OstroJS",
-    "files": [
-        "build"
-    ],
     "exports": {
         "./*": {
             "types": [
-                "./build/types/*.d.ts",
-                "./build/types/*/index.d.ts"
+                "./types/*.d.ts",
+                "./types/*/index.d.ts"
             ],
             "default": [
-                "./build/*.js",
-                "./build/*/index.js"
+                "./*.js",
+                "./*/index.js"
             ]
         }
     },
@@ -49,7 +46,7 @@
         "ts-jest": "^29.4.15",
         "ts-node": "^10.9.2",
         "typescript": "^5.8.0",
-        "@ostro/builder": "^2.0.0-alpha.3"
+        "@ostro/builder": "^2.0.0-alpha.4"
     },
     "overrides": {
         "sprintf-js": "^1.1.3",
