@@ -58,11 +58,11 @@ class Repository implements ICacheRepository {
     }
 
     public async remember<T = unknown>(key: string, seconds: number = 0, cb: Function): Promise<T> {
-        return (null as unknown) as T;
+        return (null as any) as T;
     }
 
     public async rememberForever<T = unknown>(key: string, cb: Function): Promise<T> {
-        return (null as unknown) as T;
+        return (null as any) as T;
     }
 
     public async forget(key: string): Promise<boolean> {

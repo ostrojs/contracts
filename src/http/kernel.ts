@@ -4,7 +4,7 @@
  */
 interface IHttpKernel {
     bootstrap(): Promise<void> | void;
-    handle(request: any): Promise<any>;
+    handle(request?: any): Promise<any> | any;
     terminate(request: any, response: any): Promise<void> | void;
     getApplication(): any;
 }
@@ -26,7 +26,7 @@ class Kernel implements IHttpKernel {
      * @param {*} $request
      * @returns {Promise<any>}
      */
-    public async handle($request: any): Promise<any> {
+    public async handle($request?: any): Promise<any> {
     }
 
     /**

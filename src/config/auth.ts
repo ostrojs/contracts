@@ -2,6 +2,15 @@ interface GuardConfig {
     driver: string;
     provider: string;
     hash?: boolean;
+    secret?: string;
+    algorithm?: string;
+    issuer?: string;
+    audience?: string;
+    input_key?: string;
+    storage_key?: string;
+    token_repository?: any;
+    client_repository?: any;
+    [key: string]: any;
 }
 
 interface ProviderConfig {
