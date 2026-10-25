@@ -11,6 +11,7 @@ interface AppConfig {
     fallback_locale: string;
     key: string | undefined;
     cipher: string;
+    typescript?: boolean;
     providers: unknown[];
     aliases: Record<string, unknown>;
 }
@@ -28,6 +29,7 @@ class AppConfigStub implements AppConfig {
     fallback_locale = 'en';
     key = undefined;
     cipher = 'AES-256-CBC';
+    typescript = false;
     providers = [];
     aliases = {};
 }

@@ -1,3 +1,4 @@
+import { describe, test, expect, jest } from "@jest/globals";
 import type { ExtractRouteParams, TypedRouteContext } from '../src/router/routeParser';
 import type { ParseRule, InferSchema } from '../src/validation/schema';
 import type { DotNestedKeys, GetNestedType } from '../src/config/pointer';
@@ -168,17 +169,17 @@ describe('Advanced TypeScript Typing Engines Verification', () => {
         expect(table.id).toBe(1);
         expect(table.name).toBe('Sample');
 
-        const blueprintMock: ITypedBlueprint<{}> = {
-            increments: (c) => blueprintMock as any,
-            bigIncrements: (c) => blueprintMock as any,
-            string: (c, len) => blueprintMock as any,
-            integer: (c) => blueprintMock as any,
-            boolean: (c) => blueprintMock as any,
-            text: (c) => blueprintMock as any,
-            nullable: () => blueprintMock as any,
-            default: () => blueprintMock as any,
-            timestamps: () => blueprintMock as any,
-            build: () => ({ id: 1, name: 'Sample' }) as any
+        const blueprintMock: any = {
+            increments: (_c: string) => blueprintMock,
+            bigIncrements: (_c: string) => blueprintMock,
+            string: (_c: string, _len?: number) => blueprintMock,
+            integer: (_c: string) => blueprintMock,
+            boolean: (_c: string) => blueprintMock,
+            text: (_c: string) => blueprintMock,
+            nullable: () => blueprintMock,
+            default: (_val: any) => blueprintMock,
+            timestamps: () => blueprintMock,
+            build: () => ({ id: 1, name: 'Sample' })
         };
 
         const schema = blueprintMock.increments('id').string('name').build();

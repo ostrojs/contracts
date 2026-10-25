@@ -37,5 +37,5 @@ class Kernel implements IKernel {
     }
 }
 
-export type { IKernel };
+export type { IKernel, IKernel as IConsoleKernel };
 export default Kernel;

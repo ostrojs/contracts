@@ -27,6 +27,7 @@ export type {
     IRouter
 };
 export type {
+    HttpContext,
     RouteContext,
     RouteRegistrar,
     RouteResponse,
