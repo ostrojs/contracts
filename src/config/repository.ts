@@ -43,6 +43,6 @@ class Repository implements IConfigRepository {
     }
 }
 
-export type { IConfigRepository };
+export type { IConfigRepository, IConfigRepository as IConfig };
 export default Repository;
 

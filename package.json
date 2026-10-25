@@ -1,12 +1,12 @@
 {
     "name": "@ostro/contracts",
-    "version": "2.0.0-alpha.9",
+    "version": "2.0.0-alpha.3",
     "description": "Contracts module for OstroJS",
     "exports": {
         "./*": {
             "types": [
-                "./.types/*.d.ts",
-                "./.types/*/index.d.ts"
+                "./.typed/*.d.ts",
+                "./.typed/*/index.d.ts"
             ],
             "default": [
                 "./*.js",
@@ -15,11 +15,11 @@
         }
     },
     "scripts": {
-        "build": "npm run lint:check && tsc -p tsconfig.build.json && node scripts/build.js",
+        "build": "npm run lint:check && rm -rf build && ostro-build --prepare",
         "prepublishOnly": "npm run build",
-        "test": "npx c8 npx jest",
+        "test": "jest",
         "clean": "rm -rf build coverage",
-        "lint:check": "tsc --noEmit -p tsconfig.build.json"
+        "lint:check": "tsc --noEmit"
     },
     "engines": {
         "node": ">=18.0.0"
@@ -39,7 +39,7 @@
     },
     "homepage": "https://github.com/ostrojs/contracts#readme",
     "devDependencies": {
-        "@ostro/builder": "^2.0.0-alpha.7",
+        "@ostro/builder": "^2.0.0-alpha.1",
         "@types/jest": "^30.0.0",
         "@types/node": "^22.0.0",
         "c8": "^10.1.3",

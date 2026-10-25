@@ -1,3 +1,4 @@
+import { describe, test, expect, jest } from "@jest/globals";
 import type { ExtractRouteParams, TypedRouteContext } from '../src/router/routeParser';
 import type { ParseRule, InferSchema } from '../src/validation/schema';
 import type { DotNestedKeys, GetNestedType } from '../src/config/pointer';
@@ -134,7 +135,7 @@ describe('Advanced TypeScript Typing Engines Verification', () => {
                 if (abstract === 'db') return { query: () => 'result' };
                 if (abstract === 'cache') return { get: () => 'cached' };
                 return null;
-            }) as any,
+            }) as unknown as import("../src/http/routeRegistrar").IRouteRegistrar,
             has: (abstract: string) => ['db', 'cache'].includes(abstract)
         };
 
@@ -169,16 +170,16 @@ describe('Advanced TypeScript Typing Engines Verification', () => {
         expect(table.name).toBe('Sample');
 
         const blueprintMock: ITypedBlueprint<{}> = {
-            increments: (c) => blueprintMock as any,
-            bigIncrements: (c) => blueprintMock as any,
-            string: (c, len) => blueprintMock as any,
-            integer: (c) => blueprintMock as any,
-            boolean: (c) => blueprintMock as any,
-            text: (c) => blueprintMock as any,
-            nullable: () => blueprintMock as any,
-            default: () => blueprintMock as any,
-            timestamps: () => blueprintMock as any,
-            build: () => ({ id: 1, name: 'Sample' }) as any
+            increments: (c) => blueprintMock as unknown as Record<string, unknown>,
+            bigIncrements: (c) => blueprintMock as unknown as Record<string, unknown>,
+            string: (c, len) => blueprintMock as unknown as Record<string, unknown>,
+            integer: (c) => blueprintMock as unknown as Record<string, unknown>,
+            boolean: (c) => blueprintMock as unknown as Record<string, unknown>,
+            text: (c) => blueprintMock as unknown as Record<string, unknown>,
+            nullable: () => blueprintMock as unknown as Record<string, unknown>,
+            default: () => blueprintMock as unknown as Record<string, unknown>,
+            timestamps: () => blueprintMock as unknown as Record<string, unknown>,
+            build: () => ({ id: 1, name: 'Sample' }) as unknown as Record<string, unknown>
         };
 
         const schema = blueprintMock.increments('id').string('name').build();

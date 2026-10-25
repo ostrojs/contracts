@@ -1,5 +1,6 @@
 import type { IHttpRequest } from '../http/request';
 import type { IHttpResponse } from '../http/response';
+import type { IAuthRequest } from '../auth/guard';
 
 /**
  * Interface defining Foundation HttpContext contract.
@@ -8,7 +9,7 @@ interface IHttpContext {
     request: IHttpRequest;
     response: IHttpResponse;
     $app?: any;
-    auth?: any;
+    auth?: IAuthRequest;
     view?: any;
     session?: any;
     params?: Record<string, any>;

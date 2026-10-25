@@ -22,7 +22,7 @@ class EncrypterContract implements IEncrypter {
     }
 
     public decrypt<T = any>(payload: any, unserialize: boolean = true): T {
-        return (null as unknown) as T;
+        return (null as any) as T;
     }
 
     public decryptString(payload: any): string {

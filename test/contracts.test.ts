@@ -1,5 +1,6 @@
-const fs = require('fs');
-const path = require('path');
+import { describe, test, expect, jest } from "@jest/globals";
+const fs = require('node:fs');
+const path = require('node:path');
 
 function getAllJsFiles(dirPath, arrayOfFiles = []) {
     const files = fs.readdirSync(dirPath);

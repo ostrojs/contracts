@@ -1,18 +1,20 @@
 import type { IHttpRequest } from '../http/request';
 import type { IHttpResponse } from '../http/response';
+import type { IAuthRequest } from '../auth/guard';
 
 /**
  * Interface defining Route Request contract.
  */
-interface RouteRequest {
-    user(): Promise<any> | any;
+interface RouteRequest extends IHttpRequest {
+    user(guard?: string): Promise<any> | any;
+    auth?: IAuthRequest;
     [key: string]: any;
 }
 
 /**
  * Interface defining Route Response contract.
  */
-interface RouteResponse {
+interface RouteResponse extends IHttpResponse {
     send(data: any): any;
     [key: string]: any;
 }
@@ -28,14 +30,17 @@ interface RouteViewFunction {
 }
 
 /**
- * Interface defining Route Context passed to route handlers.
+ * Interface defining Route / HTTP Context passed to route handlers.
  */
-interface RouteContext {
-    request: RouteRequest | IHttpRequest | any;
-    response: RouteResponse | IHttpResponse | any;
+interface HttpContext {
+    request: IHttpRequest;
+    response: IHttpResponse;
+    auth?: IAuthRequest;
     view: RouteViewFunction;
     [key: string]: any;
 }
+
+type RouteContext = HttpContext;
 
 /**
  * Interface defining a registered Route Entry.
@@ -71,6 +76,7 @@ class RouteContextContract {
 }
 
 export type {
+    HttpContext,
     RouteContext,
     RouteRegistrar,
     RouteResponse,

@@ -19,6 +19,7 @@ interface IContainer {
     app<T = any>(key?: string): T;
     forgetInstance($abstract: any): void;
     instance($abstract: any, $instance: any): any;
+    [key: string]: any;
 }
 
 /**
