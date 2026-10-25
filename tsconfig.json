@@ -12,7 +12,8 @@
         "noImplicitAny": false,
         "strict": false,
         "types": [
-            "node"
+            "node",
+            "jest"
         ],
         "typeRoots": [
             "./node_modules/@types"

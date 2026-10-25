@@ -135,7 +135,7 @@ describe('Advanced TypeScript Typing Engines Verification', () => {
                 if (abstract === 'db') return { query: () => 'result' };
                 if (abstract === 'cache') return { get: () => 'cached' };
                 return null;
-            }) as unknown as import("../src/http/routeRegistrar").IRouteRegistrar,
+            }) as any,
             has: (abstract: string) => ['db', 'cache'].includes(abstract)
         };
 
@@ -169,17 +169,17 @@ describe('Advanced TypeScript Typing Engines Verification', () => {
         expect(table.id).toBe(1);
         expect(table.name).toBe('Sample');
 
-        const blueprintMock: ITypedBlueprint<{}> = {
-            increments: (c) => blueprintMock as unknown as Record<string, unknown>,
-            bigIncrements: (c) => blueprintMock as unknown as Record<string, unknown>,
-            string: (c, len) => blueprintMock as unknown as Record<string, unknown>,
-            integer: (c) => blueprintMock as unknown as Record<string, unknown>,
-            boolean: (c) => blueprintMock as unknown as Record<string, unknown>,
-            text: (c) => blueprintMock as unknown as Record<string, unknown>,
-            nullable: () => blueprintMock as unknown as Record<string, unknown>,
-            default: () => blueprintMock as unknown as Record<string, unknown>,
-            timestamps: () => blueprintMock as unknown as Record<string, unknown>,
-            build: () => ({ id: 1, name: 'Sample' }) as unknown as Record<string, unknown>
+        const blueprintMock: any = {
+            increments: (_c: string) => blueprintMock,
+            bigIncrements: (_c: string) => blueprintMock,
+            string: (_c: string, _len?: number) => blueprintMock,
+            integer: (_c: string) => blueprintMock,
+            boolean: (_c: string) => blueprintMock,
+            text: (_c: string) => blueprintMock,
+            nullable: () => blueprintMock,
+            default: (_val: any) => blueprintMock,
+            timestamps: () => blueprintMock,
+            build: () => ({ id: 1, name: 'Sample' })
         };
 
         const schema = blueprintMock.increments('id').string('name').build();
