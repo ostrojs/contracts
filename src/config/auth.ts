@@ -13,10 +13,28 @@ interface GuardConfig {
     [key: string]: any;
 }
 
-interface ProviderConfig {
-    driver: string;
+interface EloquentProviderConfig {
+    driver: 'eloquent';
     model: unknown;
+    [key: string]: any;
 }
+
+interface DatabaseProviderConfig {
+    driver: 'database';
+    table: string;
+    connection?: string | null;
+    [key: string]: any;
+}
+
+interface GenericProviderConfig {
+    driver: string;
+    model?: unknown;
+    table?: string;
+    connection?: string | null;
+    [key: string]: any;
+}
+
+type ProviderConfig = EloquentProviderConfig | DatabaseProviderConfig | GenericProviderConfig;
 
 interface AuthConfig {
     defaults: {
